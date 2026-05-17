@@ -338,7 +338,8 @@ img { display: block; max-width: 100%; }
 }
 .packages-section {
   position: relative;
-  padding-top: 0; /* wave sits flush */
+  padding-top: 0;    /* top wave sits flush */
+  padding-bottom: 0; /* bottom wave sits flush — no white gap */
 }
 
 /* Section wave dividers (desktop only — hidden on mobile) */
@@ -351,7 +352,8 @@ img { display: block; max-width: 100%; }
 }
 .section-wave svg { display: block; width: 100%; height: 80px; }
 .section-wave--light { margin-top: 0; margin-bottom: 0; }
-.section-wave--why  { margin-top: 3rem; }
+/* No margin — sits flush against the section's bottom edge */
+.section-wave--why  { margin-top: 0; }
 
 .destinations-grid {
   display: grid;

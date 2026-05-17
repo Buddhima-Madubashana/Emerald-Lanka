@@ -332,6 +332,27 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Destination Cards ───────────────────────────────────────── */
+.destinations-section {
+  position: relative;
+  padding-bottom: 0; /* wave sits flush */
+}
+.packages-section {
+  position: relative;
+  padding-top: 0; /* wave sits flush */
+}
+
+/* Section wave dividers (desktop only — hidden on mobile) */
+.section-wave {
+  display: none; /* mobile: hidden */
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: 3rem;
+}
+.section-wave svg { display: block; width: 100%; height: 80px; }
+.section-wave--light { margin-top: 0; margin-bottom: 0; }
+.section-wave--why  { margin-top: 3rem; }
+
 .destinations-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -346,12 +367,14 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 .dest-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
-.dest-img-wrapper { position: relative; height: 220px; overflow: hidden; }
+/* Mobile card image — smaller */
+.dest-img-wrapper { position: relative; height: 160px; overflow: hidden; }
 .dest-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .dest-card:hover .dest-img { transform: scale(1.05); }
-.dest-content { padding: 1.25rem; }
-.dest-content h3 { font-size: 1.375rem; margin-bottom: 0.4rem; }
-.dest-content p { color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; }
+/* Mobile card content — tighter */
+.dest-content { padding: 0.875rem 1rem; }
+.dest-content h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+.dest-content p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
 
 /* ── Activities ──────────────────────────────────────────────── */
 .activities-section { background: var(--text-main); color: white; }
@@ -385,6 +408,7 @@ img { display: block; max-width: 100%; }
 .activity-card p { color: rgba(255,255,255,0.7); line-height: 1.6; font-size: 0.95rem; }
 
 /* ── Packages ────────────────────────────────────────────────── */
+.packages-section .container { padding-top: clamp(2rem, 6vw, 4rem); }
 .packages-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -618,9 +642,11 @@ img { display: block; max-width: 100%; }
   .newsletter-form { flex-direction: row; }
   .newsletter-form input { flex: 1; }
   .newsletter-form button { flex-shrink: 0; }
+  /* Slightly taller cards at 480px+ but still smaller than desktop */
+  .dest-img-wrapper { height: 180px; }
 }
 
-/* md: 768px+ */
+/* md: 768px+ — enable wave dividers and restore full card sizes */
 @media (min-width: 768px) {
   :root { --nav-h: 72px; }
 
@@ -636,7 +662,18 @@ img { display: block; max-width: 100%; }
   .features-grid { grid-template-columns: repeat(4, 1fr); }
   .testi-grid { grid-template-columns: repeat(3, 1fr); }
 
+  /* Restore full card dimensions for desktop */
   .dest-img-wrapper { height: 240px; }
+  .dest-content { padding: 1.25rem; }
+  .dest-content h3 { font-size: 1.375rem; }
+  .dest-content p { font-size: 0.925rem; }
+
+  /* Show wave dividers on desktop */
+  .section-wave { display: block; }
+
+  /* Destinations section keeps its bottom padding for the wave */
+  .destinations-section { padding-bottom: 0; }
+  .packages-section { padding-top: 0; }
 
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
 }

@@ -204,30 +204,38 @@ function App() {
       </section>
 
       {/* Destinations Section */}
-      <section id="destinations" className="section container">
-        <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-          <h2 className="section-title">Popular Destinations</h2>
-          <p className="section-subtitle">Discover the most iconic and breathtaking locations our paradise island has to offer.</p>
-        </motion.div>
-        <motion.div
-          className="destinations-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          {destinations.map((dest, idx) => (
-            <motion.div key={idx} className="dest-card" variants={fadeUp}>
-              <div className="dest-img-wrapper">
-                <img src={dest.img} alt={dest.name} className="dest-img" loading="lazy" />
-              </div>
-              <div className="dest-content">
-                <h3>{dest.name}</h3>
-                <p>{dest.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      <section id="destinations" className="section destinations-section">
+        <div className="container">
+          <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="section-title">Popular Destinations</h2>
+            <p className="section-subtitle">Discover the most iconic and breathtaking locations our paradise island has to offer.</p>
+          </motion.div>
+          <motion.div
+            className="destinations-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {destinations.map((dest, idx) => (
+              <motion.div key={idx} className="dest-card" variants={fadeUp}>
+                <div className="dest-img-wrapper">
+                  <img src={dest.img} alt={dest.name} className="dest-img" loading="lazy" />
+                </div>
+                <div className="dest-content">
+                  <h3>{dest.name}</h3>
+                  <p>{dest.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+        {/* Wave merge — desktop only */}
+        <div className="section-wave section-wave--dark" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#1c1917" />
+          </svg>
+        </div>
       </section>
 
       {/* Activities Section */}
@@ -258,29 +266,43 @@ function App() {
       </section>
 
       {/* Packages Section */}
-      <section id="packages" className="section container">
-        <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-          <h2 className="section-title">Featured Tour Packages</h2>
-          <p className="section-subtitle">Carefully crafted itineraries for the perfect getaway.</p>
-        </motion.div>
-        <motion.div
-          className="packages-grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          {packages.map((pkg, idx) => (
-            <motion.div key={idx} className="package-card" variants={fadeUp}>
-              <div className="package-duration">{pkg.duration}</div>
-              <h3 className="package-title">{pkg.title}</h3>
-              <div className="package-route">
-                <span><MapPin size={15} /> {pkg.route}</span>
-              </div>
-              <button className="btn btn-primary package-btn">View Full Details</button>
-            </motion.div>
-          ))}
-        </motion.div>
+      <section id="packages" className="section packages-section">
+        {/* Wave merge top — desktop only */}
+        <div className="section-wave section-wave--light" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#1c1917" />
+          </svg>
+        </div>
+        <div className="container">
+          <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <h2 className="section-title">Featured Tour Packages</h2>
+            <p className="section-subtitle">Carefully crafted itineraries for the perfect getaway.</p>
+          </motion.div>
+          <motion.div
+            className="packages-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {packages.map((pkg, idx) => (
+              <motion.div key={idx} className="package-card" variants={fadeUp}>
+                <div className="package-duration">{pkg.duration}</div>
+                <h3 className="package-title">{pkg.title}</h3>
+                <div className="package-route">
+                  <span><MapPin size={15} /> {pkg.route}</span>
+                </div>
+                <button className="btn btn-primary package-btn">View Full Details</button>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+        {/* Wave merge bottom — desktop only */}
+        <div className="section-wave section-wave--why" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f1f5f9" />
+          </svg>
+        </div>
       </section>
 
       {/* Why Choose Us */}
